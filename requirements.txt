@@ -1,0 +1,6 @@
+tornado==5.0.2
+redis==2.10.6
+celery==4.2.0
+
+
+
