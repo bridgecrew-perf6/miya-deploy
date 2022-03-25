@@ -15,11 +15,11 @@ CELERY_DEFAULT_EXCHANGE_TYPE = 'direct'
 CELERY_DEFAULT_ROUTING_KEY = 'celery_tasks.mytask0'
 CELERY_TIMEZONE = 'Asia/Shanghai'
 CELERY_ROUTES = {
-    'celery_tasks.mytask0': {
+    'mytask0': {
         'queue': 'mytask0',
         'routing_key': 'celery_tasks.mytask0',
     },
-    'celery_tasks.mytask1': {
+    'mytask1': {
         'queue': 'mytask1',
         'routing_key': 'celery_tasks.mytask1',
     },

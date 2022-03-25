@@ -16,10 +16,7 @@ class TestHandler(tornado.web.RequestHandler):
             args=['task0'],
             queue='mytask0',
             routing_key='celery_tasks.mytask0')
-        while True:
-            if r.ready() is True:
-                break
-            yield gen.sleep(1)
+        r.wait()
         print('TestHandler done')
         self.write({'task': r.result})
 
@@ -33,14 +30,10 @@ class HelloHandler(tornado.web.RequestHandler):
 class LongTaskHandler(tornado.web.RequestHandler):
     @gen.coroutine
     def get(self):
-        data = long_task.delay()
-
-        while True:
-            if data.ready() is True:
-                break
-            yield gen.sleep(1)
+        r = long_task.delay()
+        r.wait()
         print('LongTaskHandler done')
-        self.write(json.dumps(data.result))
+        self.write(json.dumps(r.result))
 
 
 def f2s():
