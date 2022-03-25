@@ -102,3 +102,42 @@ venv.bak/
 
 # mypy
 .mypy_cache/
+log/
+*.iml
+.idea
+*/.idea
+logs/
+
+# Operating System Files
+
+*.DS_Store
+Thumbs.db
+*.sw?
+.#*
+*#
+*~
+*.sublime-*
+
+# Build Artifacts
+
+.gradle/
+bin/
+vendor/
+dependency-reduced-pom.xml
+*/generatorConfig.xml
+
+# Eclipse Project Files
+
+.classpath
+.project
+.settings/
+
+# IntelliJ IDEA Files
+
+*.ipr
+*.iws
+*.idea
+*.out
+*.log.wf
+.agollo
+celerybeat-schedule.db
