@@ -33,7 +33,7 @@ $ conda deactivate
 
 #开启web服务
 
-/bin/bash run.sh
+/bin/bash run_server.sh
 
 #开启celery的worker
 
@@ -43,8 +43,10 @@ $ conda deactivate
 
 1、在浏览器输入
 
-curl -X GET http://127.0.0.1:9999
+curl -X GET http://127.0.0.1:9999/hello
 
 curl -X GET http://127.0.0.1:9999/long
+
+curl -X GET http://127.0.0.1:9999/test
 
 2、在终端观察输出
