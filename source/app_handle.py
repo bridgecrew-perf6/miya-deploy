@@ -6,7 +6,14 @@ import tornado
 from tornado import gen
 from tornado import web
 
-from celery_tasks import long_task, mytask0
+from celery_tasks import long_task, mytask0, async_consume
+
+
+class MainHandler(tornado.web.RequestHandler):
+    async def get(self):
+        async_consume.delay()
+        print('MainHandler done')
+        self.write('main')
 
 
 class TestHandler(tornado.web.RequestHandler):

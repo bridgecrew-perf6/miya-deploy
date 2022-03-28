@@ -1,4 +1,8 @@
+# -*- coding: utf-8 -*-
+
+import asyncio
 import time
+from asyncio import sleep
 
 from celery_app import app
 
@@ -25,6 +29,17 @@ def mytask0(task_name):
 
 
 @app.task
+def async_consume():
+    # 核心代码asyncio.run
+    return asyncio.run(consume())
+
+
+@app.task
 def mytask1(task_name):
     print("task1:%s" % task_name)
     return task_name
+
+
+async def consume():
+    await sleep(3)
+    return 'test'

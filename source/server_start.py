@@ -10,14 +10,12 @@ import app_handle
 from config import WEB_PORT
 
 
-# -*- coding: utf-8 -*-
-
-
 class MyApp:
     def __init__(self, port=WEB_PORT):
         self._port = port
 
         self._handlers = [
+            (r"/main", app_handle.MainHandler),
             (r'/hello', app_handle.HelloHandler),
             (r'/long', app_handle.LongTaskHandler),
             (r'/test', app_handle.TestHandler)

@@ -13,18 +13,16 @@ python 3.9
 #安装项目依赖模块
 
 ``` 
-下载安装包
-$ wget https://repo.anaconda.com/miniconda/Miniconda3-latest-MacOSX-x86_64.sh
-$ chmod 755 Miniconda3-latest-MacOSX-x86_64.sh
-$ ./Miniconda3-latest-MacOSX-x86_64.sh
+安装包
+$ brew install virtualenv
 创建环境
-$ conda create -n miya-env39 python=3.9
+$ virtualenv --python=python3.9 ~/miya-env39
 进入环境
-$ conda activate miya-env39
+$ source ~/miya-env39/bin/activate 
 安装依赖
 $ pip3 install -r requirements.txt
 #退出环境
-$ conda deactivate
+$ deactivate
 ```
 
 #配置参数
@@ -42,6 +40,8 @@ $ conda deactivate
 #测试
 
 1、在浏览器输入
+
+curl -X GET http://127.0.0.1:9999/main
 
 curl -X GET http://127.0.0.1:9999/hello
 
