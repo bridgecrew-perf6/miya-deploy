@@ -25,9 +25,14 @@ CELERY_ROUTES = {
     },
 }
 
+# 指定任务序列化方式
 CELERY_TASK_SERIALIZER = 'json'
+# 指定结果序列化方式
+CELERY_RESULT_SERIALIZER = 'json'
+# 指定任务接受的序列化类型.
+CELERY_ACCEPT_CONTENT = ['json']
 CELERY_IGNORE_RESULT = False
-CELERYBEAT_SCHEDULE = {
+CELERY_BEAT_SCHEDULE = {
     # 用于调试的任务,每隔一段时间执行一次
     'hello-every': {
         'task': 'celery_tasks.hello',

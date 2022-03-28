@@ -23,8 +23,8 @@ class TestHandler(tornado.web.RequestHandler):
             args=['task0'],
             queue='mytask0',
             routing_key='celery_tasks.mytask0')
-        print('TestHandler done')
         r.get()
+        print('TestHandler done')
         self.write({'task': r.result})
 
 
@@ -38,8 +38,8 @@ class LongTaskHandler(tornado.web.RequestHandler):
     @gen.coroutine
     def get(self):
         r = long_task.delay()
-        print('LongTaskHandler done')
         r.get()
+        print('LongTaskHandler done')
         self.write(json.dumps(r.result))
 
 
